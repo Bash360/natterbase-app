@@ -17,7 +17,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.get('/', function (req, res, next) {
+  res.status(200).json({"health_check":"ok"});
+});
 app.use('/api/v1', indexRouter);
 
 
