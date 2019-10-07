@@ -1,8 +1,9 @@
 const express = require('express');
+const validate = require("./validation");
 const router = express.Router();
 
-/* GET home page. */
 
+router.use("/validate", validate);
 
 
 module.exports = router;

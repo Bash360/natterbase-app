@@ -1,5 +1,4 @@
 function validate(data, rules) {
-  let isValid = true;
   let missingItems = [];
 	const keyArray = Object.keys(data);
 	for (let rule of rules) {
@@ -8,9 +7,9 @@ function validate(data, rules) {
 		}
 	}
 
-  return !missingItems.length?"valid":missingItems;
+  return !missingItems.length? "valid" :missingItems;
 }
-module.export = validate;
+module.exports = validate;
 
 
 
