@@ -8,15 +8,20 @@
  * @returns array or string
  */
 function validate(data, rules) {
+
+	let missingItems = [];
+	isValid = true;
+
   let missingItems = [];  ///empty array to put missing Items if any is found
 	const keyArray = Object.keys(data); // returns the keys as array
 	for (let rule of rules) {
-		if (!keyArray.includes(rule)) {
-      missingItems.push(rule);
+		if (!(rule in data)) {
+			missingItems.push(rule);
+			isValid = false;
 		}
 	}
 
-  return !missingItems.length? "valid" :missingItems;
+	return { missingItems, isValid };
 }
 module.exports = validate;
 
