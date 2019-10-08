@@ -5,8 +5,9 @@ const router = express.Router();
 router.post('/', (req, res) => {
   const { data, rules } = req.body;
   const result = validate(data, rules);
-	if (!result.length) return res.status(200).json({ data: result });
-	return res.status(200).json({error:result});
+ 
+  if (result.isValid) return res.status(200).json({data:"valid" });
+	return res.status(200).json({"error":result.missingItems});
 });
 
 module.exports = router;

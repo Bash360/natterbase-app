@@ -1,13 +1,14 @@
 function validate(data, rules) {
-  let missingItems = [];
-	const keyArray = Object.keys(data);
+	let missingItems = [];
+	isValid = true;
 	for (let rule of rules) {
-		if (!keyArray.includes(rule)) {
-      missingItems.push(rule);
+		if (!(rule in data)) {
+			missingItems.push(rule);
+			isValid = false;
 		}
 	}
 
-  return !missingItems.length? "valid" :missingItems;
+	return { missingItems, isValid };
 }
 module.exports = validate;
 
