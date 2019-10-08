@@ -4,7 +4,7 @@ const getLowestIndex = require("../utils/aladin.js");
 router.post("/", (req, res) => {
   const { magic, dist, n } = req.body;
   const result = getLowestIndex(magic, dist, n);
-  return res.status(200).json(result);
+  return res.status(200).json({lowestIndex:result});
 
 });
 module.exports=router;
