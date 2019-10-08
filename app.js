@@ -17,8 +17,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/api/v1', indexRouter);
 
-app.use('/', indexRouter);
+app.get('/', function (req, res, next) {
+  res.status(200).json({"healthcheck":"ok"});
+});
 
 
 // catch 404 and forward to error handler
