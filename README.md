@@ -8,7 +8,7 @@
 
 ### End points
 #### Validate 
-* Post Request, https://natterbase-app.herokuapp.com 
+* Post Request, https://natterbase-app.herokuapp.com/api/v1/validate 
 
 #### Remove Item
 * Delete Request, https://natterbase-app.herokuapp.com/api/v1/remove/:item
